@@ -1,7 +1,7 @@
 # %%
 from toolbox import get_directory
 from pathlib import Path
-# from pprint import pprint
+from pprint import pprint
 
 RESOURCE_PATH = get_directory(__file__)
 
@@ -23,12 +23,18 @@ def get_asset_from_name(name:str):
     if name not in robot_names:
         raise FileNotFoundError(f"Can not find {name} from robot names {robot_names}.")
 
-    names = []
-    for path_ in path.iterdir():
-        if path_.suffix in ['.xml', '.urdf']:
-            names.append({path_.name: path_.absolute()})
-    print(f"Available assets for {name}: {names}")
-    return names
+    xml_dict = {}
+    for name in path.glob('**/*.xml'):
+        xml_dict[name.name] = name
+    
+    urdf_dict = {}
+    for name in path.glob('**/*.urdf'):
+        urdf_dict[name.name] = name
+
+    asset_path = dict(xml=xml_dict, urdf=urdf_dict)
+    print(f"Available assets for {name}:")
+    pprint(asset_path)
+    return asset_path
 
 
 # %%
@@ -37,3 +43,4 @@ if __name__ == '__main__':
     name = robot_names[0]
 
     get_asset_from_name(name)
+    
