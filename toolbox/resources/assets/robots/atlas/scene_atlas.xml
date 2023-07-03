@@ -1,0 +1,9 @@
+<mujoco model="atlas scene">
+
+  <!-- Husky -->
+  <include file="./atlas.xml" />
+
+  <!-- Floor and Sky -->
+  <include file="../object/floor_sky.xml" />
+
+</mujoco>

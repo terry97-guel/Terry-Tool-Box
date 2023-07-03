@@ -1,0 +1,168 @@
+<mujoco model="gc_manipulator">
+
+    <!-- Mesh -->
+    <compiler angle="radian" meshdir="./mesh" autolimits='true' />
+
+    <!-- Option -->
+    <option timestep="0.002" iterations="100" solver="Newton" gravity="0 0 -9.81" integrator="RK4"></option>
+
+    <asset>
+        <mesh name="base" file="base.stl" scale="0.001 0.001 0.001" />
+        <mesh name="wheel" file="wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh name="camera_front" file="camera.stl" scale="0.001 0.001 0.001" />
+        <mesh name="mani_ground" file="mani_ground.stl" scale="0.001 0.001 0.001" />
+        <mesh name="mani_lnik1" file="mani_lnik1.stl" scale="0.001 0.001 0.001" />
+        <mesh name="mani_link4" file="mani_link4.stl" scale="0.001 0.001 0.001" />
+        <mesh name="mani_link5" file="mani_link5.stl" scale="0.001 0.001 0.001" />
+        <mesh name="mani_link6" file="mani_link6.stl" scale="0.001 0.001 0.001" />
+        <mesh name="mani_knock_tip" file="mani_knock_tip.stl" scale="0.001 0.001 0.001" />
+        <mesh name="mani_zed" file="mani_zed.stl" scale="0.001 0.001 0.001" />
+
+        <!-- for lidar sensor -->
+        <mesh name="gc_lidar" file="lidar.stl" scale="0.001 0.001 0.001" />
+    </asset>
+
+    <default>
+        <default class="gc_wheel">
+            <geom fitscale="1.2" type="ellipsoid" friction="2.0 0.01 0.0" contype="1"
+                conaffinity="0" mesh="wheel" mass="0.498952" />
+        </default>
+    </default>
+
+    <worldbody>
+        <body name="gc_mobile" pos="0 0 0.005">
+            <!-- gc mobile base -->
+            <geom type="mesh" rgba="0.3 0.3 0.3 1.0" contype="1" conaffinity="1" group="1"
+                mesh="base" friction="0.01 0.01 0.00" priority="1" />
+            <geom pos="0.244842 0.0175 0.935" type="mesh" contype="1" rgba="0 0 0 1" conaffinity="1"
+                group="1" mesh="camera_front" />
+            <joint name="gc_mobile_base_joint" type="free" />
+
+            <!-- for sensor -->
+            <site name="center_of_mass" pos="0 0 0.5" size="0.01" />
+            <site name="gc_imu" pos="0.0 0 1.0" />
+            <geom name="gc_lidar" pos="0 0 0.27" type="mesh" mass="0.180" mesh="gc_lidar"/>
+
+            <body name="gc_wheel_fr" pos="0 0.1872 0.11" euler="0 0 0">
+                <joint name="gc_mobile_right_wheel" pos="0 0 0" axis="0 1 0" range="-10 10"
+                    limited="false" />
+                <geom class="gc_wheel" type="mesh" contype="1" conaffinity="1" group="1"
+                    rgba="1 1 1 0.3" />
+            </body>
+
+            <body name="gc_wheel_fl" pos="0 -0.1872 0.11">
+                <joint name="gc_mobile_left_wheel" pos="0 0 0" axis="0 1 0" range="-10 10"
+                    limited="false" />
+                <geom class="gc_wheel" type="mesh" contype="1" conaffinity="1" group="1"
+                    rgba="1 1 1 0.3" />
+            </body>
+
+            <body name="gc_manipulator_link1" pos="0.1565 0 1.02496">
+                <inertial pos="0 0 0" quat="0.820473 0.339851 -0.17592 0.424708" mass="1"
+                    diaginertia="1 1 1" />
+                <joint name="gc_manipulator_joint1" pos="0 0 0" axis="0 0 1" limited="true"
+                    range="-1.5708 1.5708" armature="0.1" damping="200" />
+                <geom type="mesh" contype="1" conaffinity="1" group="1" mesh="mani_ground" />
+                <body name="gc_manipulator_link2" pos="0 0 0">
+                    <inertial pos="0.01 0 0" quat="0.820473 0.339851 -0.17592 0.424708" mass="1"
+                        diaginertia="1 1 1" />
+                    <joint name="gc_manipulator_joint2" pos="0 0 0" axis="0 1 0" limited="true"
+                        range="-1.22173 1.5708" armature="0.1" damping="200" />
+                    <geom quat="0.707107 0 0.707107 0" type="mesh" contype="1" conaffinity="1"
+                        group="1" mesh="mani_lnik1" />
+                    <body name="gc_manipulator_link3" pos="0 0 0.34">
+                        <inertial pos="0.01 0 0" quat="0.820473 0.339851 -0.17592 0.424708" mass="1"
+                            diaginertia="1 1 1" />
+                        <joint name="gc_manipulator_joint3" pos="0 0 0" axis="0 1 0" limited="true"
+                            range="-1.0472 1.5708" armature="0.1" damping="15" />
+                        <geom type="mesh" contype="0" conaffinity="1" group="1" mesh="mani_link4" />
+                        <body name="gc_manipulator_link4" pos="0.33787 0 0.038">
+                            <inertial pos="0.01 0 0" quat="0.820473 0.339851 -0.17592 0.424708"
+                                mass="1" diaginertia="1 1 1" />
+                            <joint name="gc_manipulator_joint4" pos="0 0 0" axis="0 1 0"
+                                limited="true" range="-1.74533 1.74533" armature="0.1" damping="15" />
+                            <geom type="mesh" contype="0" conaffinity="1" group="1"
+                                mesh="mani_link5" />
+                            <body name="gc_manipulator_link5" pos="0.024 0 0">
+                                <inertial pos="0.01 0 0" quat="0.820473 0.339851 -0.17592 0.424708"
+                                    mass="1" diaginertia="1 1 1" />
+                                <joint name="gc_manipulator_joint5" pos="0 0 0" axis="0 0 1"
+                                    limited="true" range="-1.5708 1.5708" armature="0.1"
+                                    damping="15" />
+                                <geom type="mesh" contype="0" conaffinity="1" group="1"
+                                    mesh="mani_link6" />
+
+                                <!-- Knock tip -->
+                                <geom type="mesh" contype="0" conaffinity="1" group="1"
+                                    rgba="1 1 1 1" mesh="mani_knock_tip" />
+                                <body name="eef_link" pos="0.078 0. 0.032">
+                                    <geom size="0.001 0.001 0.001" pos="0 0. 0." contype="0"
+                                        conaffinity="0"
+                                        type="box" rgba="1.00 0.00 0.0 1" />
+                                </body>
+
+                                <!-- Zed -->
+                                <geom pos="0.07045 0 -0.00569" type="mesh" contype="0"
+                                    conaffinity="1" group="1" rgba="0 0 0 1" mesh="mani_zed" />
+                                <!-- Camera center -->
+                                <body name="camera_center" pos="0.05 0. 0">
+                                    <geom size="0.005 0.005 0.005" pos="0 0. 0." contype="0"
+                                        conaffinity="0"
+                                        type="box" rgba="1.00 0.00 0.0 1" />
+                                    <!-- Mounted camera -->
+                                    <camera name="egocentric" pos="0 0 0" xyaxes="0 -1 -0.01 0 -1 0"
+                                        fovy="45" />
+                                </body>
+
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+    </worldbody>
+
+    <!-- Sensor -->
+    <sensor>
+        <framepos objtype="site" objname="center_of_mass" />
+
+        <!-- for IMU sensor -->
+        <accelerometer name="gc_accelerometer" site="gc_imu" />
+        <gyro name="gc_gyro" site="gc_imu" />
+        <velocimeter name="gc_velocimeter" site="gc_imu" />
+    </sensor>
+
+
+    <!--Contacts-->
+    <contact>
+        <!-- <exclude body1="gc_mobile" body2="gc_manipulator_link1"/> -->
+        <exclude body1="gc_mobile" body2="gc_manipulator_link2" />
+        <exclude body1="gc_manipulator_link1" body2="gc_manipulator_link2" />
+        <exclude body1="gc_manipulator_link2" body2="gc_manipulator_link3" />
+        <exclude body1="gc_manipulator_link3" body2="gc_manipulator_link4" />
+        <exclude body1="gc_manipulator_link4" body2="gc_manipulator_link5" />
+    </contact>
+
+    <!--ACTUATORS-->
+    <actuator>
+        <!-- Velocity -->
+        <velocity name="front_left_actuator" ctrllimited="true" ctrlrange="-10.0 10.0" gear="1"
+            kv="1" joint="gc_mobile_left_wheel" />
+        <velocity name="front_right_actuator" ctrllimited="true" ctrlrange="-10.0 10.0" gear="1"
+            kv="1" joint="gc_mobile_right_wheel" />
+
+        <!-- Position -->
+        <position name="gc_manipulator_joint1_P" joint="gc_manipulator_joint1" kp="500"
+            forcelimited="true" forcerange="-800 800" ctrllimited="true" ctrlrange="-1.5708 1.5708" />
+        <position name="gc_manipulator_joint2_P" joint="gc_manipulator_joint2" kp="500"
+            forcelimited="true" forcerange="-800 800" ctrllimited="true" ctrlrange="-1.22173 1.5708" />
+        <position name="gc_manipulator_joint3_P" joint="gc_manipulator_joint3" kp="100"
+            forcelimited="true" forcerange="-800 800" ctrllimited="true" ctrlrange="-1.0472 1.5708" />
+        <position name="gc_manipulator_joint4_P" joint="gc_manipulator_joint4" kp="100"
+            forcelimited="true" forcerange="-50 50" ctrllimited="true" ctrlrange="-1.74533 1.74533" />
+        <position name="gc_manipulator_joint5_P" joint="gc_manipulator_joint5" kp="100"
+            forcelimited="true" forcerange="-50 50" ctrllimited="true" ctrlrange="-1.5708 1.5708" />
+    </actuator>
+
+</mujoco>

@@ -1,0 +1,9 @@
+<mujoco model="gc scene">
+
+  <!-- GC manipulator -->
+  <include file="./gc_manipulator.xml" />
+
+  <!-- Floor and Sky -->
+  <include file="../object/floor_sky.xml" />
+
+</mujoco>
