@@ -15,7 +15,7 @@ class ASSET_SRC(Enum):
     CUSTOM = 0
     MENAGERIE = 1
 
-def get_asset_from_name(name:str, TYPE=ASSET_SRC.CUSTOM, XML=True):
+def get_asset_dict(TYPE=ASSET_SRC.CUSTOM, XML=True):
     if TYPE is ASSET_SRC.CUSTOM:
         path = ROBOT_PATH
     elif TYPE is ASSET_SRC.MENAGERIE:
@@ -46,5 +46,5 @@ def get_asset_from_name(name:str, TYPE=ASSET_SRC.CUSTOM, XML=True):
 # %%
 if __name__ == '__main__':
     name = 'go1'
-    get_asset_from_name(name, ASSET_SRC.MENAGERIE)
+    get_asset_dict(name, ASSET_SRC.MENAGERIE)
     
