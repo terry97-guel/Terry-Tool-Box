@@ -63,6 +63,7 @@
                         <geom size="0.1 0.008 0.008" pos="0 0 -0.1" quat="0.707107 0 0.707107 0" type="box" rgba="0 0 0 0" />
                         <geom size="0.01" pos="0 0 -0.2" contype="0" conaffinity="0" group="1" rgba="0 0 0 1" />
                         <geom size="0.02" pos="0 0 -0.2" rgba="0 0 0 1" />
+                        <site name="FR_foot" pos="0 0 -0.2" type="sphere" size=".015"/>
                     </body>
                 </body>
             </body>
@@ -83,6 +84,7 @@
                         <geom size="0.1 0.008 0.008" pos="0 0 -0.1" quat="0.707107 0 0.707107 0" type="box" rgba="0 0 0 0" />
                         <geom size="0.01" pos="0 0 -0.2" contype="0" conaffinity="0" group="1" rgba="0 0 0 1" />
                         <geom size="0.02" pos="0 0 -0.2" rgba="0 0 0 1" />
+                        <site name="FL_foot" pos="0 0 -0.2" type="sphere" size=".015"/>
                     </body>
                 </body>
             </body>
@@ -103,6 +105,7 @@
                         <geom size="0.1 0.008 0.008" pos="0 0 -0.1" quat="0.707107 0 0.707107 0" type="box" rgba="0 0 0 0" />
                         <geom size="0.01" pos="0 0 -0.2" contype="0" conaffinity="0" group="1" rgba="0 0 0 1" />
                         <geom size="0.02" pos="0 0 -0.2" rgba="0 0 0 1" />
+                        <site name="RR_foot" pos="0 0 -0.2" type="sphere" size=".015"/>
                     </body>
                 </body>
             </body>
@@ -123,13 +126,14 @@
                         <geom size="0.1 0.008 0.008" pos="0 0 -0.1" quat="0.707107 0 0.707107 0" type="box" rgba="0 0 0 0" />
                         <geom size="0.01" pos="0 0 -0.2" contype="0" conaffinity="0" group="1" rgba="0 0 0 1" />
                         <geom size="0.02" pos="0 0 -0.2" rgba="0 0 0 1" />
+                        <site name="RL_foot" pos="0 0 -0.2" type="sphere" size=".015"/>
                     </body>
                 </body>
             </body>
         </body>
     </worldbody>
+
     <actuator>       
-        
         <motor name="FR_hip"       gear="1" joint="FR_hip_joint"/>
         <motor name="FR_thigh"       gear="1" joint="FR_thigh_joint"/>
         <motor name="FR_calf"       gear="1" joint="FR_calf_joint"/>
@@ -144,8 +148,7 @@
         <motor name="RL_calf"      gear="1" joint="RL_calf_joint"/>
     </actuator>
 
-    <sensor>
-
+    <!-- <sensor>
         <jointpos name="FR_hip_pos"     joint="FR_hip_joint"/>
         <jointpos name="FR_thigh_pos"   joint="FR_thigh_joint"/>
         <jointpos name="FR_calf_pos"    joint="FR_calf_joint"/>
@@ -173,13 +176,12 @@
         <jointvel name="RL_calf_vel"    joint="RL_calf_joint"/>
 
         <accelerometer name="Body_Acc" site="imu"/>
-
         <gyro name="Body_Gyro" site="imu"/>
 
-        <!-- <framepos name="Body_Pos" objtype="site" objname="imu"/> -->
-        <!-- <framequat name="Body_Quat" objtype="site" objname="imu"/> -->
+        <framepos name="Body_Pos" objtype="site" objname="imu"/>
+        <framequat name="Body_Quat" objtype="site" objname="imu"/>
         
     
-    </sensor>
+    </sensor> -->
 
 </mujoco>
