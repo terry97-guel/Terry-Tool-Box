@@ -1,4 +1,5 @@
 from pathlib import Path
+import numpy as np
 
 def get_directory(filename):
     path = Path(filename)
@@ -6,3 +7,4 @@ def get_directory(filename):
         path = path.parent
     return path
 
+PI = np.pi
