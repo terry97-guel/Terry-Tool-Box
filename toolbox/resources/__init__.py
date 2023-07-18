@@ -26,7 +26,14 @@ def get_asset_dict(TYPE=ASSET_SRC.CUSTOM, XML=True):
     if XML:
         xml_dict = {}
         for name in path.glob('**/*.xml'):
-            xml_dict[name.name] = name
+            if name.stem == 'scene':
+                continue
+            xml_dict[name.stem] = name
+            
+            xml_scene = name.parent / 'scene.xml'
+            if xml_scene.is_file():
+                xml_dict['scene_'+name.stem] = xml_scene
+        
         
         pprint(xml_dict)
         return xml_dict
@@ -45,6 +52,8 @@ def get_asset_dict(TYPE=ASSET_SRC.CUSTOM, XML=True):
 
 # %%
 if __name__ == '__main__':
-    name = 'go1'
-    get_asset_dict(name, ASSET_SRC.MENAGERIE)
+    # get_asset_dict(ASSET_SRC.CUSTOM)
+    get_asset_dict(ASSET_SRC.MENAGERIE)
     
+    
+# %%
