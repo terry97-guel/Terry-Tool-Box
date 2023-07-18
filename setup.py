@@ -15,7 +15,7 @@ setup(
     author_email='taerimyoon@korea.ac.kr',
     license='Apache License 2.0',
     description='Python toolbox for Robotics and Machine Learning',
-    packages=find_packages(exclude=['.xml', '.stl', 'urdf', ]),
+    packages=find_packages(),
     # package_data={'toolbox': ['resources/assets/*.xml', 'resources/assets/*.urdf', 'resources/assets/*.stl']},
     # install_requires = read_requirements("requirements.txt"),
     classifiers=[
