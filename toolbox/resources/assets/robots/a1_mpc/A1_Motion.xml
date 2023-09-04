@@ -142,7 +142,7 @@
           </body>
         </body>
       </body>
-      <body name="HR_hip" pos="-0.183 -0.047 0">
+      <body name="RR_hip" pos="-0.183 -0.047 0">
         <inertial mass="0.696" pos="0.003311 -0.000635 3.1e-05"
             quat="0.491507 0.494499 0.507528 0.506268"
             diaginertia="0.000807752 0.00055293 0.000468983"/>
@@ -166,12 +166,12 @@
             <geom class="visual" mesh="calf"/>
             <geom class="calf1"/>
             <geom class="calf2"/>
-            <geom name="HR" class="foot"/>
+            <geom name="RR" class="foot"/>
             <site name="RR" pos="0 0 -0.2" type="sphere" size=".015"/>
           </body>
         </body>
       </body>
-      <body name="HL_hip" pos="-0.183 0.047 0">
+      <body name="RL_hip" pos="-0.183 0.047 0">
         <inertial mass="0.696" pos="0.003311 0.000635 3.1e-05"
             quat="0.506268 0.507528 0.494499 0.491507"
             diaginertia="0.000807752 0.00055293 0.000468983"/>
@@ -195,7 +195,7 @@
             <geom class="visual" mesh="calf"/>
             <geom class="calf1"/>
             <geom class="calf2"/>
-            <geom name="HL" class="foot"/>
+            <geom name="RL" class="foot"/>
             <site name="RL" pos="0 0 -0.2" type="sphere" size=".015"/>
           </body>
         </body>

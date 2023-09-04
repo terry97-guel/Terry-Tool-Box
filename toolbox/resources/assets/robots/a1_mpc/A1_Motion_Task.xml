@@ -1,4 +1,4 @@
-<mujoco model="Quadruped">
+<mujoco model="A1_Quadruped">
   <include file="../../object/common.xml"/>
 
   <size memory="1M"/>
