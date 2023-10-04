@@ -104,7 +104,7 @@
     <!-- <light name="spotlight" mode="targetbodycom" target="trunk" pos="0 -1 2" cutoff="30"/> -->
     <body name="trunk" pos="0 0 0.62" quat="0 0 0 1" childclass="anymal_c">
       <site name="torso"/>
-      <site name="head" pos="-0.3 0 0"/>
+      <site name="head" pos="0.3 0 0"/>
       <freejoint/>
       <inertial mass="19.2035" pos="0.0025 0 0.0502071" quat="0.5 0.5 0.5 0.5" diaginertia="0.639559 0.624031 0.217374"/>
       <geom mesh="base_0" material="green" class="visual"/>
@@ -192,6 +192,7 @@
           class="visual"/>
         <geom class="collision" size="0.05 0.07" pos="0.0599 0.0119598 -0.006905"
           quat="-0.353553 0.612372 0.612372 0.353553"/>
+        <!-- <site name="FR_hip" pos="0.0599 0 0" type="sphere" size=".015"/> -->
         <body name="FR_thigh" pos="0.0599 0.0725816 -0.041905" quat="0.183013 0.683013 0.683013 -0.183013">
           <inertial mass="3.071" pos="0.0308147 4.64995e-05 -0.245696" quat="0.992775 -0.00512735 -0.0806685 0.0886811"
             diaginertia="0.0302511 0.0298933 0.0041845"/>
