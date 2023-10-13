@@ -110,7 +110,7 @@
     <body name="trunk" pos="0 0 0.62" quat="0 0 0 1" childclass="anymal_c">
       <site name="torso"/>
       <site name="head" pos="0.3 0 0"/>
-      <freejoint/>
+      <freejoint name="trunk"/>
       <inertial mass="19.2035" pos="0.0025 0 0.0502071" quat="0.5 0.5 0.5 0.5" diaginertia="0.639559 0.624031 0.217374"/>
       <!-- <geom mesh="base_0" material="green" class="visual"/> -->
       <!-- <geom mesh="base_1" material="yellow" class="visual"/> -->

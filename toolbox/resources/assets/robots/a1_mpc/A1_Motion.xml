@@ -71,7 +71,7 @@
       <light pos="0 0 5" mode="trackcom" diffuse="0.8 0.8 0.8"/>
       <site name="torso"/>
       <site name="head" pos=".3 0 0"/>
-      <freejoint/>
+      <freejoint name="trunk"/>
       <inertial mass="4.713" pos="0 0.0041 -0.0005"
           fullinertia="0.0158533 0.0377999 0.0456542 -3.66e-05 -6.11e-05 -2.75e-05"/>
       <geom class="visual" mesh="trunk" material="carbonfibre"/>
