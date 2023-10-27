@@ -101,6 +101,10 @@
           <geom class="thigh1"/>
           <geom class="thigh2"/>
           <geom class="thigh3"/>
+          <!-- Add mass to FR_calf -->
+          <body name="Lump1" pos="0 0 -0.2">
+            <inertial mass="5" pos="0 0 0" quat="1 0 0 0"/>
+          </body>
           <body name="FR_calf" pos="0 0 -0.2">
             <site name="FR_calf_site"/>
             <inertial mass="0.226" pos="0.00472659 0 -0.131975"
@@ -112,6 +116,10 @@
             <geom name="FR_foot_collision" class="calf2"/>
             <geom name="FR_foot" class="foot"/>
             <site name="FR_foot_site" pos="0 0 -0.2" type="sphere" size=".015"/>
+            <!-- Add mass to FR_foot -->
+            <body name="Lump2" pos="0 0 -0.2">
+              <inertial mass="5" pos="0 0 0" quat="1 0 0 0"/>
+            </body>
           </body>
         </body>
       </body>

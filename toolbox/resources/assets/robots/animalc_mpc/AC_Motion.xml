@@ -53,7 +53,7 @@
     <!-- <material name="wide_angle_camera" texture="wide_angle_camera"/> -->
     <!-- <material name="battery" texture="battery"/> -->
     <!-- <material name="lidar_cage" texture="lidar_cage"/> -->
-    <!-- <material name="lidar" texture="lidar"/> -->
+    <material name="lidar" texture="lidar"/>
     <!-- <material name="drive" texture="drive"/> -->
 
     <texture type="2d" name="base" file="base.png"/>
@@ -67,7 +67,7 @@
     <!-- <texture type="2d" name="lidar_cage" file="lidar_cage.png"/> -->
     <!-- <texture type="2d" name="depth_camera" file="depth_camera.png"/> -->
     <!-- <texture type="2d" name="wide_angle_camera" file="wide_angle_camera.png"/> -->
-    <!-- <texture type="2d" name="lidar" file="lidar.png"/> -->
+    <texture type="2d" name="lidar" file="lidar.png"/>
     <!-- <texture type="2d" name="drive" file="drive.png"/> -->
     <!-- <texture type="2d" name="hip_l" file="hip_l.png"/> -->
 
@@ -94,7 +94,7 @@
     <!-- <mesh file="depth_camera.obj"/> -->
     <!-- <mesh file="battery.obj"/> -->
     <!-- <mesh file="lidar_cage.obj"/> -->
-    <!-- <mesh file="lidar.obj"/> -->
+    <mesh file="lidar.obj"/>
     <!-- <mesh file="drive.obj"/> -->
     <mesh file="hip_l.obj"/>
     <mesh file="thigh.obj"/>
@@ -108,7 +108,7 @@
   <worldbody>
     <!-- <light name="spotlight" mode="targetbodycom" target="trunk" pos="0 -1 2" cutoff="30"/> -->
     <body name="trunk" pos="0 0 0.62" quat="0 0 0 1" childclass="anymal_c">
-      <site name="torso"/>
+      <site name="trunk_site"/>
       <site name="head" pos="0.3 0 0"/>
       <freejoint name="trunk"/>
       <inertial mass="19.2035" pos="0.0025 0 0.0502071" quat="0.5 0.5 0.5 0.5" diaginertia="0.639559 0.624031 0.217374"/>
@@ -148,13 +148,14 @@
         mesh="depth_camera" class="visual"/> -->
       <!-- <geom pos="-0.364 0 0.0735" material="lidar_cage" mesh="lidar_cage" class="visual"/> -->
       <geom class="collision" size="0.07 0.06" pos="-0.364 0 0.1335"/>
-      <!-- <geom pos="-0.364 0 0.1422" quat="1 0 0 -1" material="lidar" mesh="lidar" class="visual"/> -->
+      <geom pos="-0.364 0 0.1422" quat="1 0 0 -1" material="lidar" mesh="lidar" class="visual"/>
       <!-- <geom pos="0.2999 0.104 0" quat="0.258819 0.965926 0 0" material="drive" mesh="drive" class="visual"/> -->
       <!-- <geom pos="0.2999 -0.104 0" quat="0.258819 -0.965926 0 0" material="drive" mesh="drive" class="visual"/> -->
       <!-- <geom pos="-0.2999 0.104 0" quat="0 0 0.965926 -0.258819" material="drive" mesh="drive" class="visual"/> -->
       <!-- <geom pos="-0.2999 -0.104 0" quat="0 0 -0.965926 -0.258819" material="drive" mesh="drive" class="visual"/> -->
       <!-- <geom pos="0.116 0 0.073" material="hatch" mesh="hatch" class="visual"/> -->
       <body name="FL_hip" pos="0.2999 0.104 0" quat="0.258819 0.965926 0 0">
+        <site name="FL_hip_site" pos="0.1 0 0"/>
         <inertial mass="2.781" pos="0.0566606 -0.015294 -0.00829784" quat="-0.127978 0.709783 -0.135278 0.679359"
           diaginertia="0.00585729 0.00491868 0.00329081"/>
         <joint name="FL_hip_joint" axis="1 0 0" range="-0.72 0.49"/>
@@ -165,6 +166,7 @@
         <geom class="collision" size="0.05 0.07" pos="0.0599 -0.0119598 -0.006905"
           quat="-0.353553 -0.612372 0.612372 -0.353553"/>
         <body name="FL_thigh" pos="0.0599 -0.0725816 -0.041905" quat="0.183013 -0.683013 0.683013 0.183013">
+          <site name="FL_thigh_site" pos="0.1003 0 0"/>
           <inertial mass="3.071" pos="0.0308147 4.64995e-05 -0.245696" quat="0.993166 -0.00515309 -0.0806592 0.0841972"
             diaginertia="0.03025 0.0298943 0.00418465"/>
           <joint name="FL_thigh_joint" axis="1 0 0" range="-9.42478 9.42478"/>
@@ -175,6 +177,7 @@
           <!-- <geom pos="0.1003 0 -0.285" material="drive" mesh="drive" class="visual"/> -->
           <geom class="collision" size="0.05 0.07" pos="0.0303 0 -0.285" quat="1 0 1 0"/>
           <body name="FL_calf" pos="0.1003 0 -0.285">
+            <site name="FL_calf_site"/>
             <inertial mass="0.58842" pos="0.005462 -0.0612528 -0.0806598"
               quat="0.992934 -0.115904 -0.00105487 -0.0254421" diaginertia="0.0101637 0.00923838 0.00111927"/>
             <joint name="FL_calf_joint" axis="1 0 0" range="-9.42478 9.42478"/>
@@ -185,15 +188,16 @@
               type="box"/>
             <!-- <geom pos="0.01305 -0.08795 -0.33797" quat="0.382683 0 0 -0.92388" material="foot" mesh="foot"
               class="visual"/> -->
-            <geom pos="0.01305 -0.08795 -0.33797" quat="0.382683 0 0 -0.92388" mesh="foot"
+            <geom name="FL_foot_vis" pos="0.01305 -0.08795 -0.33797" quat="0.382683 0 0 -0.92388" mesh="foot"
               class="visual"/>
-            <geom class="collision" size="0.0175 0.141252" pos="0.01305 -0.08795 -0.168985" quat="1 0 0 -1"/>
+            <geom name="FL_foot_collision" class="collision" size="0.0175 0.141252" pos="0.01305 -0.08795 -0.168985" quat="1 0 0 -1"/>
             <geom name="FL_foot" class="foot" pos="0.01305 -0.08795 -0.31547" quat="1 0 0 -1"/>
-            <site name="FL_foot" pos="0.01305 -0.08795 -0.31547" type="sphere" size=".015"/>
+            <site name="FL_foot_site" pos="0 -0.08795 -0.31547" type="sphere" size=".015"/>
           </body>
         </body>
       </body>
       <body name="FR_hip" pos="0.2999 -0.104 0" quat="0.258819 -0.965926 0 0">
+        <site name="FR_hip_site" pos="0.0599 0 0"/>
         <inertial mass="2.781" pos="0.0567633 0.015294 -0.00829784" quat="0.13524 0.679072 0.127985 0.710065"
           diaginertia="0.00585928 0.0049205 0.00329064"/>
         <joint name="FR_hip_joint" axis="1 0 0" range="-0.49 0.72"/>
@@ -204,6 +208,7 @@
         <geom class="collision" size="0.05 0.07" pos="0.0599 0.0119598 -0.006905"
           quat="-0.353553 0.612372 0.612372 0.353553"/>
         <body name="FR_thigh" pos="0.0599 0.0725816 -0.041905" quat="0.183013 0.683013 0.683013 -0.183013">
+          <site name="FR_thigh_site" pos="0.1003 0 0 "/>
           <inertial mass="3.071" pos="0.0308147 4.64995e-05 -0.245696" quat="0.992775 -0.00512735 -0.0806685 0.0886811"
             diaginertia="0.0302511 0.0298933 0.0041845"/>
           <joint name="FR_thigh_joint" axis="-1 0 0" range="-9.42478 9.42478"/>
@@ -214,6 +219,7 @@
           <!-- <geom pos="0.1003 0 -0.285" material="drive" mesh="drive" class="visual"/> -->
           <geom class="collision" size="0.05 0.07" pos="0.0303 0 -0.285" quat="1 0 1 0"/>
           <body name="FR_calf" pos="0.1003 0 -0.285">
+            <site name="FR_calf_site"/>
             <inertial mass="0.58842" pos="0.005462 0.0612528 -0.0806598" quat="0.992934 0.115904 -0.00105487 0.0254421"
               diaginertia="0.0101637 0.00923838 0.00111927"/>
             <joint name="FR_calf_joint" axis="-1 0 0" range="-9.42478 9.42478"/>
@@ -223,14 +229,15 @@
             <geom class="collision" size="0.057499 0.03375 0.019" pos="0.02 0.057499 0" quat="0.5 0.5 0.5 0.5"
               type="box"/>
             <!-- <geom pos="0.01305 0.08795 -0.33797" quat="0.382683 0 0 0.92388" material="foot" mesh="foot" class="visual"/> -->
-            <geom pos="0.01305 0.08795 -0.33797" quat="0.382683 0 0 0.92388" mesh="foot" class="visual"/>
-            <geom class="collision" size="0.0175 0.141252" pos="0.01305 0.08795 -0.168985" quat="1 0 0 1"/>
+            <geom name="FR_foot_vis" pos="0.01305 0.08795 -0.33797" quat="0.382683 0 0 0.92388" mesh="foot" class="visual"/>
+            <geom name="FR_foot_collision" class="collision" size="0.0175 0.141252" pos="0.01305 0.08795 -0.168985" quat="1 0 0 1"/>
             <geom name="FR_foot" class="foot" pos="0.01305 0.08795 -0.31547" quat="1 0 0 1"/>
-            <site name="FR_foot" pos="0.01305 0.08795 -0.31547" type="sphere" size=".015"/>
+            <site name="FR_foot_site" pos="0 0.08795 -0.31547" type="sphere" size=".015"/>
           </body>
         </body>
       </body>
       <body name="RL_hip" pos="-0.2999 0.104 0" quat="0 0 0.965926 -0.258819">
+        <site name="RL_hip_site" pos="0.0599 0 0"/>
         <inertial mass="2.781" pos="0.0567633 0.015294 -0.00829784" quat="0.13524 0.679072 0.127985 0.710065"
           diaginertia="0.00585928 0.0049205 0.00329064"/>
         <joint name="RL_hip_joint" axis="-1 0 0" range="-0.72 0.49"/>
@@ -241,6 +248,7 @@
         <geom class="collision" size="0.05 0.07" pos="0.0599 0.0119598 -0.006905"
           quat="-0.353553 0.612372 0.612372 0.353553"/>
         <body name="RL_thigh" pos="0.0599 0.0725816 -0.041905" quat="0.183013 0.683013 0.683013 -0.183013">
+          <site name="RL_thigh_site" pos="0.1003 0 0 "/>
           <inertial mass="3.071" pos="0.0308147 4.64995e-05 -0.245696" quat="0.992775 -0.00512735 -0.0806685 0.0886811"
             diaginertia="0.0302511 0.0298933 0.0041845"/>
           <joint name="RL_thigh_joint" axis="1 0 0" range="-9.42478 9.42478"/>
@@ -251,6 +259,7 @@
           <!-- <geom pos="0.1003 0 -0.285" material="drive" mesh="drive" class="visual"/> -->
           <geom class="collision" size="0.05 0.07" pos="0.0303 0 -0.285" quat="1 0 1 0"/>
           <body name="RL_calf" pos="0.1003 0 -0.285">
+            <site name="RL_calf_site"/>
             <inertial mass="0.58842" pos="0.005462 0.0612528 -0.0806598" quat="0.992934 0.115904 -0.00105487 0.0254421"
               diaginertia="0.0101637 0.00923838 0.00111927"/>
             <joint name="RL_calf_joint" axis="1 0 0" range="-9.42478 9.42478"/>
@@ -261,15 +270,16 @@
               type="box"/>
             <!-- <geom pos="0.01305 0.08795 -0.33797" quat="-0.382683 0 0 -0.92388" material="foot" mesh="foot"
               class="visual"/> -->
-            <geom pos="0.01305 0.08795 -0.33797" quat="-0.382683 0 0 -0.92388" mesh="foot"
+            <geom name="RL_foot_vis" pos="0.01305 0.08795 -0.33797" quat="-0.382683 0 0 -0.92388" mesh="foot"
               class="visual"/>
-            <geom class="collision" size="0.0175 0.141252" pos="0.01305 0.08795 -0.168985" quat="1 0 0 -1"/>
+            <geom name="RL_foot_collision" class="collision" size="0.0175 0.141252" pos="0.01305 0.08795 -0.168985" quat="1 0 0 -1"/>
             <geom name="RL_foot" class="foot" pos="0.01305 0.08795 -0.31547" quat="1 0 0 -1"/>
-            <site name="RL_foot" pos="0.01305 0.08795 -0.31547" type="sphere" size=".015"/>
+            <site name="RL_foot_site" pos="0 0.08795 -0.31547" type="sphere" size=".015"/>
           </body>
         </body>
       </body>
       <body name="RR_hip" pos="-0.2999 -0.104 0" quat="0 0 -0.965926 -0.258819">
+        <site name="RR_hip_site" pos="0.0599 0 0"/>
         <inertial mass="2.781" pos="0.0566606 -0.015294 -0.00829784" quat="-0.127978 0.709783 -0.135278 0.679359"
           diaginertia="0.00585729 0.00491868 0.00329081"/>
         <joint name="RR_hip_joint" axis="-1 0 0" range="-0.49 0.72"/>
@@ -280,6 +290,7 @@
         <geom class="collision" size="0.05 0.07" pos="0.0599 -0.0119598 -0.006905"
           quat="0.353553 0.612372 -0.612372 0.353553"/>
         <body name="RR_thigh" pos="0.0599 -0.0725816 -0.041905" quat="-0.183013 0.683013 -0.683013 -0.183013">
+          <site name="RR_thigh_site" pos="0.1003 0 0 "/>
           <inertial mass="3.071" pos="0.0308147 4.64995e-05 -0.245696" quat="0.993166 -0.00515309 -0.0806592 0.0841972"
             diaginertia="0.03025 0.0298943 0.00418465"/>
           <joint name="RR_thigh_joint" axis="-1 0 0" range="-9.42478 9.42478"/>
@@ -290,6 +301,7 @@
           <!-- <geom pos="0.1003 0 -0.285" material="drive" mesh="drive" class="visual"/> -->
           <geom class="collision" size="0.05 0.07" pos="0.0303 0 -0.285" quat="1 0 1 0"/>
           <body name="RR_calf" pos="0.1003 0 -0.285">
+            <site name="RR_calf_site"/>
             <inertial mass="0.58842" pos="0.005462 -0.0612528 -0.0806598"
               quat="0.992934 -0.115904 -0.00105487 -0.0254421" diaginertia="0.0101637 0.00923838 0.00111927"/>
             <joint name="RR_calf_joint" axis="-1 0 0" range="-9.42478 9.42478"/>
@@ -300,11 +312,11 @@
               type="box"/>
             <!-- <geom pos="0.01305 -0.08795 -0.33797" quat="0.382683 0 0 -0.92388" material="foot" mesh="foot"
               class="visual"/> -->
-            <geom pos="0.01305 -0.08795 -0.33797" quat="0.382683 0 0 -0.92388" mesh="foot"
+            <geom name="RR_foot_vis" pos="0.01305 -0.08795 -0.33797" quat="0.382683 0 0 -0.92388" mesh="foot"
               class="visual"/>
-            <geom class="collision" size="0.0175 0.141252" pos="0.01305 -0.08795 -0.168985" quat="1 0 0 1"/>
+            <geom name="RR_foot_collision" class="collision" size="0.0175 0.141252" pos="0.01305 -0.08795 -0.168985" quat="1 0 0 1"/>
             <geom name="RR_foot" class="foot" pos="0.01305 -0.08795 -0.31547" quat="1 0 0 1"/>
-            <site name="RR_foot" pos="0.01305 -0.08795 -0.31547" type="sphere" size=".015"/>
+            <site name="RR_foot_site" pos="0 -0.08795 -0.31547" type="sphere" size=".015"/>
           </body>
         </body>
       </body>
