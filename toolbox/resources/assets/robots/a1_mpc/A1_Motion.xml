@@ -111,7 +111,7 @@
             <geom class="calf1"/>
             <geom name="FR_foot_collision" class="calf2"/>
             <geom name="FR_foot" class="foot"/>
-            <site name="FR_foot_site" pos="0 0 -0.2" type="sphere" size=".015"/>
+            <site name="FR_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>
           </body>
         </body>
       </body>
@@ -144,7 +144,7 @@
             <geom class="calf1"/>
             <geom name="FL_foot_collision" class="calf2"/>
             <geom name="FL_foot" class="foot"/>
-            <site name="FL_foot_site" pos="0 0 -0.2" type="sphere" size=".015"/>
+            <site name="FL_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>
           </body>
         </body>
       </body>
@@ -176,7 +176,7 @@
             <geom class="calf1"/>
             <geom name="RR_foot_collision" class="calf2"/>
             <geom name="RR_foot" class="foot"/>
-            <site name="RR_foot_site" pos="0 0 -0.2" type="sphere" size=".015"/>
+            <site name="RR_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>
           </body>
         </body>
       </body>
@@ -208,7 +208,7 @@
             <geom class="calf1"/>
             <geom name="RL_foot_collision" class="calf2"/>
             <geom name="RL_foot" class="foot"/>
-            <site name="RL_foot_site" pos="0 0 -0.2" type="sphere" size=".015"/>
+            <site name="RL_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>
           </body>
         </body>
       </body>
