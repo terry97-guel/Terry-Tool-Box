@@ -98,9 +98,9 @@
               diaginertia="0.00555739 0.00513936 0.00133944"/>
           <joint class="hip" name="FR_thigh_joint"/>
           <geom class="visual" mesh="thigh_mirror"/>
-          <geom class="thigh1"/>
-          <geom class="thigh2"/>
-          <geom class="thigh3"/>
+          <geom name="FR_thigh1" class="thigh1"/>
+          <geom name="FR_thigh2" class="thigh2"/>
+          <geom name="FR_thigh3" class="thigh3"/>
           <body name="FR_calf" pos="0 0 -0.2">
             <site name="FR_calf_site"/>
             <inertial mass="0.226" pos="0.00472659 0 -0.131975"
@@ -108,7 +108,7 @@
                 diaginertia="0.00340344 0.00339393 3.54834e-05"/>
             <joint class="knee" name="FR_calf_joint"/>
             <geom class="visual" mesh="calf"/>
-            <geom class="calf1"/>
+            <geom name="FR_calf" class="calf1"/>
             <geom name="FR_foot_collision" class="calf2"/>
             <geom name="FR_foot" class="foot"/>
             <site name="FR_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>
@@ -131,9 +131,9 @@
               diaginertia="0.00555739 0.00513936 0.00133944"/>
           <joint class="hip" name="FL_thigh_joint"/>
           <geom class="visual" mesh="thigh"/>
-          <geom class="thigh1"/>
-          <geom class="thigh2"/>
-          <geom class="thigh3"/>
+          <geom name="FL_thigh1" class="thigh1"/>
+          <geom name="FL_thigh2" class="thigh2"/>
+          <geom name="FL_thigh3" class="thigh3"/>
           <body name="FL_calf" pos="0 0 -0.2">
             <site name="FL_calf_site"/>
             <inertial mass="0.226" pos="0.00472659 0 -0.131975"
@@ -141,7 +141,7 @@
                 diaginertia="0.00340344 0.00339393 3.54834e-05"/>
             <joint class="knee" name="FL_calf_joint"/>
             <geom class="visual" mesh="calf"/>
-            <geom class="calf1"/>
+            <geom name="FL_calf" class="calf1"/>
             <geom name="FL_foot_collision" class="calf2"/>
             <geom name="FL_foot" class="foot"/>
             <site name="FL_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>
@@ -163,9 +163,9 @@
               diaginertia="0.00555739 0.00513936 0.00133944"/>
           <joint class="hip" name="RR_thigh_joint"/>
           <geom class="visual" mesh="thigh_mirror"/>
-          <geom class="thigh1"/>
-          <geom class="thigh2"/>
-          <geom class="thigh3"/>
+          <geom name="RR_thigh1" class="thigh1"/>
+          <geom name="RR_thigh2" class="thigh2"/>
+          <geom name="RR_thigh3" class="thigh3"/>
           <body name="RR_calf" pos="0 0 -0.2">
             <site name="RR_calf_site"/>
             <inertial mass="0.226" pos="0.00472659 0 -0.131975"
@@ -173,7 +173,7 @@
                 diaginertia="0.00340344 0.00339393 3.54834e-05"/>
             <joint class="knee" name="RR_calf_joint"/>
             <geom class="visual" mesh="calf"/>
-            <geom class="calf1"/>
+            <geom name="RR_calf" class="calf1"/>
             <geom name="RR_foot_collision" class="calf2"/>
             <geom name="RR_foot" class="foot"/>
             <site name="RR_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>
@@ -195,9 +195,9 @@
               diaginertia="0.00555739 0.00513936 0.00133944"/>
           <joint class="hip" name="RL_thigh_joint"/>
           <geom class="visual" mesh="thigh"/>
-          <geom class="thigh1"/>
-          <geom class="thigh2"/>
-          <geom class="thigh3"/>
+          <geom name="RL_thigh1" class="thigh1"/>
+          <geom name="RL_thigh2" class="thigh2"/>
+          <geom name="RL_thigh3" class="thigh3"/>
           <body name="RL_calf" pos="0 0 -0.2">
             <site name="RL_calf_site"/>
             <inertial mass="0.226" pos="0.00472659 0 -0.131975"
@@ -205,7 +205,7 @@
                 diaginertia="0.00340344 0.00339393 3.54834e-05"/>
             <joint class="knee" name="RL_calf_joint"/>
             <geom class="visual" mesh="calf"/>
-            <geom class="calf1"/>
+            <geom name="RL_calf" class="calf1"/>
             <geom name="RL_foot_collision" class="calf2"/>
             <geom name="RL_foot" class="foot"/>
             <site name="RL_foot_site" pos="0 0 -0.2" type="sphere" size=".020"/>

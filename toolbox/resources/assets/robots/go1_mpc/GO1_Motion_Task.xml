@@ -65,13 +65,14 @@
     <user name="YPR" dim="3" user="0 0 0" />
     <user name="Balance" dim="2"/>
     <user name="Effort" dim="12"/>
+    <user name="Force" dim="1"/>
     <framepos      name="trace0" objtype="site" objname="head"/>
     <subtreecom    name="torso_subtreecom" body="trunk"/>
     <subtreelinvel name="torso_subtreelinvel" body="trunk"/>
   </sensor>
 
   <keyframe>
-    <key name="home" qpos="0 0 0.27 1 0 0 0 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8"
+    <key name="home" qpos="0 0 0.265 1 0 0 0 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8"
       ctrl="0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8"/>
   </keyframe>
 
