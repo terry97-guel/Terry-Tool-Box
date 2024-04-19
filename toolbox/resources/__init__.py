@@ -3,6 +3,7 @@ from toolbox import get_directory
 from pathlib import Path
 from pprint import pprint
 from enum import Enum
+from typing import Dict
 
 RESOURCE_PATH = get_directory(__file__)
 
@@ -15,7 +16,7 @@ class ASSET_SRC(Enum):
     CUSTOM = 0
     MENAGERIE = 1
 
-def get_asset_dict(TYPE=ASSET_SRC.CUSTOM, XML=True):
+def get_asset_dict(TYPE=ASSET_SRC.CUSTOM, XML=True)->Dict[str, Path]:
     if TYPE is ASSET_SRC.CUSTOM:
         path = ROBOT_PATH
     elif TYPE is ASSET_SRC.MENAGERIE:
