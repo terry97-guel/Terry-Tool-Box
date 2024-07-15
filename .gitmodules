@@ -1,5 +1,5 @@
-[submodule "toolbox/resources/assets/mujoco_menagerie"]
-	path = toolbox/resources/assets/mujoco_menagerie
+[submodule "terry_toolbox/resources/assets/mujoco_menagerie"]
+	path = terry_toolbox/resources/assets/mujoco_menagerie
 	url = https://github.com/deepmind/mujoco_menagerie.git
 [submodule "mujoco_pyc"]
 	path = mujoco_pyc

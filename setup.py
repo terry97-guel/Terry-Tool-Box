@@ -9,7 +9,7 @@ def read_requirements(file):
 find_packages()
 # %%
 setup(
-    name='toolbox',
+    name='terry_toolbox',
     version='1.0.0',
     author='terry97-guel',
     author_email='taerimyoon@korea.ac.kr',
@@ -17,7 +17,7 @@ setup(
     description='Python toolbox for Robotics and Machine Learning',
     packages=find_packages(),
     # package_data={'toolbox': ['resources/assets/*.xml', 'resources/assets/*.urdf', 'resources/assets/*.stl']},
-    # install_requires = read_requirements("requirements.txt"),
+    install_requires = read_requirements("requirements.txt"),
     classifiers=[
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
