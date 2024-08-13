@@ -10,17 +10,15 @@ find_packages()
 # %%
 setup(
     name='terry_toolbox',
-    version='1.0.0',
+    version='1.0.1',
     author='terry97-guel',
     author_email='taerimyoon@korea.ac.kr',
     license='Apache License 2.0',
     description='Python toolbox for Robotics and Machine Learning',
     packages=find_packages(),
-    # package_data={'toolbox': ['resources/assets/*.xml', 'resources/assets/*.urdf', 'resources/assets/*.stl']},
+    package_data={'terry_toolbox': ['resources/assets/**']},
     install_requires = read_requirements("requirements.txt"),
     classifiers=[
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.10',
     ],
 )

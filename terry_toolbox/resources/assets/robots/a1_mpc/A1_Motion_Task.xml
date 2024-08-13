@@ -64,7 +64,7 @@
     <user name="Balance" dim="2"/>
     <user name="Effort" dim="12"/>
     <user name="Force" dim="1"/>
-    <framepos      name="trace0" objtype="site" objname="head"/>
+    <framepos      name="trace0" objtype="site" objname="head_site"/>
     <subtreecom    name="torso_subtreecom" body="trunk"/>
     <subtreelinvel name="torso_subtreelinvel" body="trunk"/>
   </sensor>
