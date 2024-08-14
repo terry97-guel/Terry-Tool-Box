@@ -70,8 +70,8 @@
 			<geom size="0.25 0.14 0.075" type="box" rgba="0.7 0.7 0.7 1" class="collision"/>
 			<geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="logo_left"/>
 			<geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="logo_right"/>
-			<geom pos="0.34218 0 0.17851" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.15 0.15 0.15 1" mesh="unitree_ladar"/>
-			<geom size="0.076 0.08" pos="0.34218 0 0.15851" type="cylinder" rgba="0.15 0.15 0.15 1" class="collision"/>
+			<!-- <geom pos="0.34218 0 0.17851" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.15 0.15 0.15 1" mesh="unitree_ladar"/>
+			<geom size="0.076 0.08" pos="0.34218 0 0.15851" type="cylinder" rgba="0.15 0.15 0.15 1" class="collision"/> -->
 			<geom pos="0.841724 -4.57659e-06 0.130379" quat="0.00244632 3.13845e-06 0.999997 1.29099e-06" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0 0 0 1" mesh="f_dc_link"/>
 			<geom pos="-0.378319 0.000200109 -0.379902" quat="-1.30076e-06 -0.708662 5.35065e-07 0.705548" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0 0 0 1" mesh="r_dc_link"/>
 			<geom pos="0 -0.02341 0.04927" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0 0 0 1" mesh="fake_imu_link"/>
