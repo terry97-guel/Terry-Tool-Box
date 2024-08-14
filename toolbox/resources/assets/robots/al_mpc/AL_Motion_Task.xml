@@ -4,7 +4,7 @@
   <size memory="1M"/>
 
   <visual>
-    <headlight diffuse="0.6 0.6 0.6"  ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <headlight diffuse="0.6 0.6 0.6"  ambient="0.7 0.7 0.7" specular="0 0 0"/>
     <global azimuth="-90"/>
   </visual>
 
