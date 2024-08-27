@@ -133,6 +133,7 @@
                   <body name="tcp_link" pos="0. 0.27 0.">
                     <geom size="0.005 0.005 0.005" pos="0 0. 0." contype="0" conaffinity="0"
                       type="box" rgba="1.00 0.00 0.0 1" />
+                    <site name="gripper_center" pos="0 0 0" />
                   </body>
                   <!-- Camera -->
                   <body name="camera_mount" pos="0 0 0.">
