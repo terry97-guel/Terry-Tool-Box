@@ -1,5 +1,5 @@
 <mujoco model="b2_description">
-    <compiler angle="radian" meshdir="assets" />
+    <compiler angle="radian" meshdir="assets" autolimits="true"/>
     <!-- <size njmax="500" nconmax="100" /> -->
     <option gravity='0 0 -9.806' iterations='50' solver='Newton' timestep='0.002'/>
 
