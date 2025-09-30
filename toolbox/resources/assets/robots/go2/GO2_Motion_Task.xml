@@ -1,0 +1,155 @@
+<mujoco model="Quadruped">
+    <include file="../../object/common.xml"/>
+
+    <size memory="1M"/>
+
+    <custom>
+        <!-- agent -->
+        <text name="task_transition" data="Stand"/>
+        <numeric name="agent_planner" data="2 "/>
+        <numeric name="agent_horizon" data="1.0"/>
+        <numeric name="agent_timestep" data="0.01"/>
+        <numeric name="sampling_spline_points" data="3"/>
+        <numeric name="sampling_trajectories" data="60"/>
+        <numeric name="sampling_exploration" data="0.04"/>
+        <numeric name="gradient_spline_points" data="5"/>
+
+        <!-- estimator -->
+        <numeric name="estimator" data="0"/>
+        <numeric name="estimator_sensor_start" data="9"/>
+        <numeric name="estimator_number_sensor" data="21"/>
+        <numeric name="estimator_timestep" data="0.005"/>
+        <numeric name="batch_configuration_length" data="3"/>
+        <numeric name="batch_scale_prior" data="1.0e-3"/>
+    </custom>
+
+    <visual>
+        <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+        <global azimuth="-90"/>
+    </visual>
+
+    <statistic extent="1" center="0 0 .3"/>
+
+    <worldbody>
+        <light pos="0 0 1.5" dir="0 0 -1" diffuse="0.5 0.5 0.5" specular="0.3 0.3 0.3" directional="true"
+               castshadow="false"/>
+        <geom name="floor" size="0 0 0.1" pos="0 0 -0.01" type="plane" material="blue_grid"/>
+
+        <body name="mocap[trunk]" mocap="true">
+            <site name="mocap[trunk]" class="mocap_site" size="0.05"/>
+        </body>
+        <body name="mocap[head]" mocap="true">
+            <site name="mocap[head]" class="mocap_site" size="0.05"/>
+        </body>
+        <body name="mocap[FR_hip]" mocap="true">
+            <site name="mocap[FR_hip]" class="mocap_site"/>
+        </body>
+        <body name="mocap[FR_thigh]" mocap="true">
+            <site name="mocap[FR_thigh]" class="mocap_site"/>
+        </body>
+        <body name="mocap[FR_calf]" mocap="true">
+            <site name="mocap[FR_calf]" class="mocap_site"/>
+        </body>
+        <body name="mocap[FR_foot]" mocap="true">
+            <site name="mocap[FR_foot]" class="mocap_site"/>
+        </body>
+
+        <body name="mocap[FL_hip]" mocap="true">
+            <site name="mocap[FL_hip]" class="mocap_site"/>
+        </body>
+        <body name="mocap[FL_thigh]" mocap="true">
+            <site name="mocap[FL_thigh]" class="mocap_site"/>
+        </body>
+        <body name="mocap[FL_calf]" mocap="true">
+            <site name="mocap[FL_calf]" class="mocap_site"/>
+        </body>
+        <body name="mocap[FL_foot]" mocap="true">
+            <site name="mocap[FL_foot]" class="mocap_site"/>
+        </body>
+
+        <body name="mocap[RR_hip]" mocap="true">
+            <site name="mocap[RR_hip]" class="mocap_site"/>
+        </body>
+        <body name="mocap[RR_thigh]" mocap="true">
+            <site name="mocap[RR_thigh]" class="mocap_site"/>
+        </body>
+        <body name="mocap[RR_calf]" mocap="true">
+            <site name="mocap[RR_calf]" class="mocap_site"/>
+        </body>
+        <body name="mocap[RR_foot]" mocap="true">
+            <site name="mocap[RR_foot]" class="mocap_site"/>
+        </body>
+
+        <body name="mocap[RL_hip]" mocap="true">
+            <site name="mocap[RL_hip]" class="mocap_site"/>
+        </body>
+        <body name="mocap[RL_thigh]" mocap="true">
+            <site name="mocap[RL_thigh]" class="mocap_site"/>
+        </body>
+        <body name="mocap[RL_calf]" mocap="true">
+            <site name="mocap[RL_calf]" class="mocap_site"/>
+        </body>
+        <body name="mocap[RL_foot]" mocap="true">
+            <site name="mocap[RL_foot]" class="mocap_site"/>
+        </body>
+
+
+    </worldbody>
+
+    <default>
+        <default class="mocap_site">
+            <site type="sphere" size="0.027" rgba="0 0 1 1" group="2" material="target"/>
+        </default>
+        <default class="torque">
+            <general gainprm="50" ctrllimited="true" ctrlrange="-1 1"/>
+        </default>
+        <default class="real_torque">
+            <general gainprm="23.7" ctrllimited="true" ctrlrange="-1 1"/>
+        </default>
+        <default class="calf_torque">
+            <general gainprm="45.43" ctrllimited="true" ctrlrange="-1 1"/>
+        </default>
+        <default class="task">
+            <site rgba="1 0 0 1" size=".02" group="5"/>
+        </default>
+    </default>
+
+
+    <include file="go2_motion.xml"/>
+
+    <actuator>
+        <general class="torque" name="FR_hip" joint="FR_hip_joint"/>
+        <general class="torque" name="FR_thigh" joint="FR_thigh_joint"/>
+        <general class="torque" name="FR_calf" joint="FR_calf_joint"/>
+        <general class="torque" name="FL_hip" joint="FL_hip_joint"/>
+        <general class="torque" name="FL_thigh" joint="FL_thigh_joint"/>
+        <general class="torque" name="FL_calf" joint="FL_calf_joint"/>
+        <general class="torque" name="RR_hip" joint="RR_hip_joint"/>
+        <general class="torque" name="RR_thigh" joint="RR_thigh_joint"/>
+        <general class="torque" name="RR_calf" joint="RR_calf_joint"/>
+        <general class="torque" name="RL_hip" joint="RL_hip_joint"/>
+        <general class="torque" name="RL_thigh" joint="RL_thigh_joint"/>
+        <general class="torque" name="RL_calf" joint="RL_calf_joint"/>
+    </actuator>
+
+    <sensor>
+        <user name="Qpos" dim="12" user="0 0 0 0 0 0 0 0 0 0 0 0" />
+        <user name="FootHeight" dim="4" user="0 0 0 0" />
+        <user name="Height" dim="1" user="0" />
+        <user name="Position" dim="3" user="0 0 0" />
+        <user name="Heading" dim="2" />
+        <user name="YPR" dim="3" user="0 0 0" />
+        <user name="Balance" dim="2"/>
+        <user name="Effort" dim="12"/>
+        <user name="Force" dim="1"/>
+
+        <framepos      name="trace0" objtype="site" objname="head"/>
+        <subtreecom    name="torso_subtreecom" body="trunk"/>
+        <subtreelinvel name="torso_subtreelinvel" body="trunk"/>
+    </sensor>
+
+    <keyframe>
+        <key name="home"
+             qpos="0 0 0.26 1 0 0 0 -0.000341931 0.0181576 -0.0268335 0.00160968 0.0247957 -0.0270045 0.00191398 -0.033048 -0.0675298 -0.00199489 -0.0374747 -0.0681862"/>
+    </keyframe>
+</mujoco>
